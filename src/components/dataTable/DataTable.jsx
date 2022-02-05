@@ -2,26 +2,45 @@ import React, {Component} from 'react';
 import Table from 'react-bootstrap/Table';
 import './DataTable.css';
 
+const axios = require('axios');
+
 class DataTable extends Component {
 
-  getTableData() {
-    return [
-      {
-        "device": "Thermometer",
-        "value": "4C",
-        "delta": "+1C"
-      },
-      {
-        "device": "Humidity Detector",
-        "value": "60%",
-        "delta": "+3%"
-      },
-      {
-        "device": "Oxygen Detector",
-        "value": "70%",
-        "delta": "-2%"
-      }
-    ]
+  constructor(props) {
+    super(props);
+    this.state = {
+        oxygen: {
+          value:"Retrieving...",
+          delta: "Retrieving..."
+        },
+        temperature: {
+          value:"Retrieving...",
+          delta: "Retrieving..."
+        }
+    };
+  }
+
+  getTemperature() {
+    axios.get('http://127.0.0.1:5000/temperature').then(resp => {
+      this.setState({'temperature': {'value': resp.data.value, 'delta': resp.data.delta}})
+    }).catch(error => {
+      console.log("Failed to retrieve temperature")
+      console.log(error)
+    });
+  }
+
+  getOxygen() {
+    axios.get('http://127.0.0.1:5000/oxygen').then(resp => {
+      this.setState({'oxygen': {'value': resp.data.value, 'delta': resp.data.delta}})
+    }).catch(error => {
+      console.log("Failed to retrieve oxygen")
+      console.log(error)
+    });
+  }
+
+  componentDidMount() {
+    this.getOxygen();
+    this.getTemperature();
   }
 
   renderRow(row) {
@@ -46,12 +65,24 @@ class DataTable extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.getTableData().map(row => (this.renderRow(row)))}
+            <tr>
+              <td>Temperature</td>
+              <td>{this.state.temperature.value}</td>
+              <td>{this.state.temperature.delta}</td>
+            </tr>
+            <tr>
+              <td>Oxygen Detector</td>
+              <td>{this.state.oxygen.value}</td>
+              <td>{this.state.oxygen.delta}</td>
+            </tr>
           </tbody>
         </Table>
       </div>
     )
   }
 }
+
+DataTable.defaultProps = {
+};
 
 export default DataTable;
