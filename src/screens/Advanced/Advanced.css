@@ -1,0 +1,67 @@
+@import '../../App.css';
+
+.advanced-header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.advanced-header-title {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-diagram {
+    margin-right: var(--space);
+}
+
+.btn-diagram-text {
+    transition: var(--transitionText);
+    margin-left: var(--spaceSmall);
+}
+
+.btn-diagram-text-dark {
+    color: var(--white);
+}
+
+.btn-diagram-text-light {
+    color: var(--darkBlue)
+}
+
+.screen-title {
+    font-size: 1.5em;
+    margin: 0;
+    margin-left: var(--spaceSmall);
+}
+
+.advanced-main {
+    height: 100%;
+    padding: var(--space) 0;
+    width: 100%;
+}
+
+.advanced-main-row {
+    border-bottom-left-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius);
+    border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+    height: 100%;
+    margin-right: var(--space);
+    overflow-y: scroll;
+    padding-right: var(--space);
+    width: 100%;
+}
+
+.data-item {
+    margin-top: var(--spaceSmall);
+}
+
+.data-item:first-child {
+    margin-top: 0;
+}
+
+.card-label {
+    font-weight: 600;
+    margin-bottom: var(--spaceSmall);
+}

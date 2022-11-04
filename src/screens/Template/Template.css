@@ -1,0 +1,23 @@
+@import '../../App.css';
+
+.align-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.page-container {
+    height: 100vh;
+    padding: var(--spaceLarge);
+    transition: var(--transition);
+    width:80%;
+}
+
+.page-container-dark {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.page-container-light {
+    background-color: var(--offWhite);
+    color: var(--darkBlue);
+}
