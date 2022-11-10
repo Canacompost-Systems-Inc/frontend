@@ -53,7 +53,7 @@ function Range (props) {
 
 const defaultProps = {
     value: 0,
-    max: 90,
+    max: 100,
     min: 0,
     unit: '%',
     step: 10

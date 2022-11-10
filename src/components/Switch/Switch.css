@@ -96,3 +96,19 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+.sun-icon {
+  color: var(--darkBlue);
+  height: 1rem;
+  left: 0.2rem;
+  position:absolute;
+  width: 1rem;
+}
+
+.moon-icon {
+  color: var(--white);
+  height: 1rem;
+  position:absolute;
+  right: 0.2rem;
+  width: 1rem;
+}

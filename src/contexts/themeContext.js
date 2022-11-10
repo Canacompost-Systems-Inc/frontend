@@ -8,9 +8,6 @@ function ThemeProvider(props) {
     const toggleTheme = () => {
       if (theme === "dark") {
         setTheme("light");
-      } else
-      if (theme === "light") {
-        setTheme("dark")
       } else {
         setTheme("dark")
       }

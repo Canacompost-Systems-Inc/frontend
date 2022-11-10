@@ -7,10 +7,10 @@ const propTypes = {
     /** If true displays sun and moon icon inside the switch. */
     hasIcons: PropTypes.bool,
   
-    /** Label to be displayed on the left tof the switch.*/
+    /** Label to be displayed on the left of the switch.*/
     labeLeft: PropTypes.string,
 
-    /** Label to be displayed on the right tof the switch.*/
+    /** Label to be displayed on the right of the switch.*/
     labelRight: PropTypes.string,
 
     /** Value of the switch.*/
@@ -55,19 +55,12 @@ function Switch (props) {
             <span className={`slider round slider-${theme}`}>
                 {/* sun icon */}
                 {hasIcons && (theme === 'light') ? <svg
-                    style={{
-                        width: "1rem",
-                        height: "1rem",
-                        color: "#05102B",
-                        position:"absolute",
-                        left: "0.2rem"
-                    }}
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="w-6 h-6 sun-icon"
                 >
                     <path
                         strokeLinecap="round"
@@ -78,19 +71,12 @@ function Switch (props) {
 
                 {/* moon icon */}
                 {hasIcons && (theme === 'dark') ? <svg
-                    style={{
-                        width: "1rem",
-                        height: "1rem",
-                        color: "#F7F7F7",
-                        position:"absolute",
-                        right: "0.2rem"
-                    }}
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="w-6 h-6 moon-icon "
                 >
                     <path
                         strokeLinecap="round"

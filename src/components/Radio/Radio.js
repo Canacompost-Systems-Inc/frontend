@@ -23,25 +23,25 @@ function Radio (props) {
     
     return (
         <div className="radio-container" {...moreProps}>
-            {options.map(radio => {
+            {options.map(option => {
                 return(
-                    <div className='radio-item' key={radio.name}>
+                    <div className='radio-item' key={option.name}>
                         <input
-                            checked={radio.value === radioValue}
+                            checked={option.value === radioValue}
                             onChange={() => [
-                                onChange(radio.value),
-                                setRadioValue(radio.value)
+                                onChange(option.value),
+                                setRadioValue(option.value)
                             ]}
                             className="radio"
                             type="radio"
-                            name={radio.name}
-                            id={`${id}-${radio.name}`}
+                            name={option.name}
+                            id={`${id}-${option.name}`}
                         />
                         <label
                             className="radio-label"
-                            htmlFor={`${id}-${radio.name}`}
+                            htmlFor={`${id}-${option.name}`}
                         >
-                            {radio.name}
+                            {option.name}
                         </label>
                     </div>
                 )

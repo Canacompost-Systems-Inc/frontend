@@ -50,47 +50,46 @@ function Advanced() {
             <div className="advanced-main">
                 <div className="advanced-main-row">
                     {actuators.map(item => {
-                        if (item.type.toUpperCase() === "SWITCH") {
-                            return (
-                                <div key={item.id} className="data-item">
-                                    <Card>
-                                        <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
-                                        <Switch
-                                            onChange={(val) => updateData(val, item.id)}
-                                            value={item.value ? item.value : false}
-                                        />
-                                    </Card>
-                                </div> 
-                            )
-                        } else
-                        if (item.type.toUpperCase() === "RANGE") {
-                            return (
-                                <div key={item.id} className="data-item">
-                                    <Card>
-                                        <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
-                                        <Range
-                                            id={item.id}
-                                            onChange={(val) => updateData(val, item.id)}
-                                            value={item.value ? item.value : 0}
-                                        />
-                                    </Card>
-                                </div>
-                            )
-                        } else
-                        if (item.type.toUpperCase() === "RADIO") {
-                            return (
-                                <div key={item.id} className="data-item">
-                                    <Card>
-                                        <div className="card-label">{`${item.id} - ${item.description}`}</div>
-                                        <Radio
-                                            id={item.id}
-                                            onChange={(val) => updateData(val, item.id)}
-                                            options={item.options}
-                                            value={item.value ? item.value : 0}
-                                        />
-                                    </Card>
-                                </div>
-                            )
+                        switch(item.type) {
+                            case "SWITCH":
+                                return (
+                                    <div key={item.id} className="data-item">
+                                        <Card>
+                                            <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
+                                            <Switch
+                                                onChange={(val) => updateData(val, item.id)}
+                                                value={item.value ? item.value : false}
+                                            />
+                                        </Card>
+                                    </div> 
+                                );
+                            case "RANGE":
+                                return (
+                                    <div key={item.id} className="data-item">
+                                        <Card>
+                                            <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
+                                            <Range
+                                                id={item.id}
+                                                onChange={(val) => updateData(val, item.id)}
+                                                value={item.value ? item.value : 0}
+                                            />
+                                        </Card>
+                                    </div>
+                                );
+                            case "RADIO":
+                                return (
+                                    <div key={item.id} className="data-item">
+                                        <Card>
+                                            <div className="card-label">{`${item.id} - ${item.description}`}</div>
+                                            <Radio
+                                                id={item.id}
+                                                onChange={(val) => updateData(val, item.id)}
+                                                options={item.options}
+                                                value={item.value ? item.value : 0}
+                                            />
+                                        </Card>
+                                    </div>
+                                );
                         }
                     })}
                 </div>

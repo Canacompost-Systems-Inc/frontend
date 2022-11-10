@@ -124,7 +124,7 @@ function Navigation() {
                     hasIcons
                     labelLeft="Dark"
                     labelRight="Light"
-                    value={theme === "dark" ? false : true}
+                    value={theme !== "dark"}
                     onChange={toggleTheme}
                 />
             </div>
