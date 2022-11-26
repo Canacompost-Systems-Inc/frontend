@@ -1,0 +1,40 @@
+@import '../../App.css';
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space);
+}
+
+.radio[type='radio']:after {
+    background-color: var(--offWhite);
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    left: -1px;
+    position: relative;
+    top: -2.5px;
+    visibility: visible;
+    width: 20px;
+}
+
+.radio[type='radio']:checked:after {
+    background-color: #57E377;
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    left: -1px;
+    position: relative;
+    top: -2.5px;
+    visibility: visible;
+    width: 20px;
+}
+
+.radio-label {
+    margin-left: var(--space);
+}

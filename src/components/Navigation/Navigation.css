@@ -1,0 +1,67 @@
+@import '../../App.css';
+
+.navigation {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spaceLarge) var(--space);
+    transition: var(--transition);
+    width: 20%;
+}
+
+.nav-logo {
+    font-weight: bold;
+    margin-bottom: var(--spaceLarge);
+    margin-top: 0;
+    text-align: center;
+}
+
+.navigation-routes {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-route {
+    font-weight: bold;
+    margin-bottom: var(--spaceLarge);
+    text-decoration: none;
+    transition: var(--transitionText);
+}
+
+.navigation-route-light {
+    color: var(--darkBlue);
+}
+
+.navigation-route-dark {
+    color: var(--white);
+}
+
+.navigation-route-active {
+    color: var(--green);
+}
+
+.navigation-route:hover {
+    color: var(--green);
+}
+
+.nav-item {
+    margin-left: var(--spaceSmall);
+}
+
+.nav-item-active {
+    background: var(--greenGradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-light {
+    background: var(--white);
+    color: var(--darkBlue);
+}
+
+.nav-dark {
+    background: var(--darkBlue);
+    color: var(--white);
+}

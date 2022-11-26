@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* STYLESHEET */
+:root {
+  /* COLORS */
+  --offWhite: #E9ECEE;
+  --white: #F7F7F7;
+  --darkBlue: #05102B;
+  --blue: #15223F;
+  --green: #43DA66;
+  --lightBlueGradient: linear-gradient(270deg, #57E3DB 0%, #5798E3 100%);
+  --greenGradient:linear-gradient(180deg, #57E377 0%, #AEE357 100%);
+  --meterGradient:linear-gradient(180deg, #5CE476 0%, #E1E45C 44.79%, #FF5106 100%);
+
+  /* SPACING */
+  --spaceSmall: 0.5rem;
+  --space: 1rem;
+  --spaceLarge: 2rem;
+
+  --borderRadius: 10px;
+
+  /* ANIMATION */
+  --transition: 1s background ease;
+  --transitionText: 1s color ease;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  border-radius: var(--borderRadius);
+  width: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar-track {
+  border-radius: var(--borderRadius);
+  background: var(--white);
 }
 
-.App-link {
-  color: #61dafb;
+::-webkit-scrollbar-thumb {
+  background: lightgreen;
+  border-radius: var(--borderRadius);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+  border-radius: var(--borderRadius);
 }

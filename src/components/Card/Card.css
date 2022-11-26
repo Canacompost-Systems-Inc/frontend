@@ -1,0 +1,17 @@
+@import '../../App.css';
+
+.card-container {
+    border-radius: var(--borderRadius);
+    height: auto;
+    padding: var(--space);
+    transition: var(--transition);
+    width: auto;
+}
+
+.card-dark {
+    background: var(--darkBlue);
+}
+
+.card-light {
+    background: var(--white);
+}

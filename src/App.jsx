@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Routes, Route} from "react-router-dom";
+import Advanced from "./screens/Advanced";
+import Chambers from "./screens/Chambers";
+import Dashboard from "./screens/Dashboard";
+import {ActuatorsProvider} from './contexts/actuatorsContext';
+import {ThemeProvider} from './contexts/themeContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import DataTable from './components/dataTable/DataTable';
-import Buttons from './components/buttons/Buttons';
-
-class App extends Component {
-
-  render() {
-
-    return (
-      <div className="App">
-        
-        <div className="page-header">
-          <h3> Canacompost Control Console </h3>
-          <h4> <small> Monitor and control the status of the composter. </small> </h4>
+function App () {
+  return (
+    <ThemeProvider>
+      <ActuatorsProvider>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="chambers" element={<Chambers />} />
+            <Route path="advanced" element={<Advanced />} />
+          </Routes>
         </div>
-
-        <DataTable />
-        <Buttons />
-      </div>
-    );
-  }
+      </ActuatorsProvider>
+    </ThemeProvider>
+  )
 }
 
 export default App;
