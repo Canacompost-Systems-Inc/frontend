@@ -13,23 +13,6 @@
     flex-direction: row;
 }
 
-.btn-diagram {
-    margin-right: var(--space);
-}
-
-.btn-diagram-text {
-    transition: var(--transitionText);
-    margin-left: var(--spaceSmall);
-}
-
-.btn-diagram-text-dark {
-    color: var(--white);
-}
-
-.btn-diagram-text-light {
-    color: var(--darkBlue)
-}
-
 .screen-title {
     font-size: 1.5em;
     margin: 0;

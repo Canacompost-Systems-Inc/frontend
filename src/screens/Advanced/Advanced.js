@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from '../../components/Card'
-import Range from '../../components/Range'
-import Radio from '../../components/Radio'
-import Switch from '../../components/Switch'
+import Card from '../../components/Card';
+import Range from '../../components/Range';
+import Radio from '../../components/Radio';
+import Switch from '../../components/Switch';
 import Template from '../Template';
 import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import './Advanced.css';
