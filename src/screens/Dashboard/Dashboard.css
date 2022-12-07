@@ -6,8 +6,90 @@
     flex-direction: row;
 }
 
+.dashboard-header-title {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
 .screen-title {
     font-size: 1.5em;
     margin: 0;
     margin-left: var(--spaceSmall);
+}
+
+.dashboard-main {
+    height: 100%;
+    padding: var(--space) 0;
+    width: 100%;
+}
+
+.dashboard-main-cards {
+    border-bottom-left-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius);
+    border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space);
+    height: 100%;
+    justify-content: space-evenly;
+    margin-right: var(--space);
+    padding-right: var(--space);
+    row-gap: var(--space);
+    width: 100%;
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    margin-left: var(--spaceSmall);
+}
+
+.chamber-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-left, .col-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-top-left, .row-bottom-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-card {
+    height:  14rem;
+    width: 14rem;
+}
+
+.dashboard-card-error {
+    background: var(--errorGradient);
+    border-radius: var(--borderRadius);
+    padding: 3px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .dashboard-main-container {
+        overflow-y: scroll;
+    }
 }
