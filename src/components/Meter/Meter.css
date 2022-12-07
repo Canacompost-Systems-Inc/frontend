@@ -1,0 +1,128 @@
+@import '../../App.css';
+
+.meter-container {
+    align-items: center;
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    position: relative;
+    width: 5rem;
+}
+
+.meter-container-large {
+    height: 10rem;
+    width: 10rem;
+}
+
+.meter-bar {
+    border-radius: 50%;
+    height:3rem;
+    width: 3rem;
+}
+
+.meter-bar-large {
+    height: 6rem;
+    width: 6rem;
+}
+
+.meter-bottom-hidden {
+    bottom: 0;
+    font-size: 0.8em;
+    height:30%;
+    position: absolute;
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+    z-index: 99;
+}
+
+.meter-bottom-hidden-large {
+    font-size: 1em;
+}
+
+.meter-bottom-dark {
+    background: var(--darkBlue);
+}
+
+.meter-bottom-light {
+    background: var(--white);
+}
+
+.meter-bar {
+    align-items: center;
+    background: var(--meterGradient);
+    display: flex;
+    justify-content: center;
+}
+
+.meter-pointer {
+    height:0.8rem;
+    position: absolute;
+    top: 18%;
+    transform-origin: 0.1rem 1.6rem;
+    transition: var(--transition);
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    -ms-transition: -ms-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;  
+    width: 0.2rem;
+    z-index: 999;
+}
+
+.meter-pointer-large {
+    height: 1.6rem;
+    transform-origin: 0.2rem 3.2rem;
+    width: 0.4rem;
+}
+
+.meter-pointer-dark {
+    background-color: var(--offWhite);
+}
+
+.meter-pointer-light {
+    background-color: var(--darkBlue);
+}
+
+.meter-value {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: var(--space);
+    transition: var(--transitionText);
+    z-index: 999;
+}
+
+.meter-value-large {
+    font-size: 1.6em;
+}
+
+.meter-value-dark {
+    color: var(--offWhite);
+}
+
+.meter-value-light {
+    color: var(--darkBlue);
+}
+
+.meter-bar-hidden {
+    border-radius: 50%;
+    height: 2.5rem;
+    position: absolute;
+    transition: var(--transition);
+    width: 2.5rem;
+}
+
+.meter-bar-hidden-large {
+    height: 5rem;
+    width: 5rem;
+}
+
+.meter-bar-dark {
+    background: var(--darkBlue);
+}
+
+.meter-bar-light {
+    background: var(--white);
+}
+
+.meter-error {
+    color: var(--red);
+}
