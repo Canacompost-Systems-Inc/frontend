@@ -8,10 +8,14 @@ const propTypes = {
     isLarge: PropTypes.bool,
     /** Label displayed below the Meter.*/
     label: PropTypes.string,
-    /** Minimum value of the Meter's range.*/
+    /** Maximum  value of the Meter's range.*/
     max: PropTypes.number,
     /** Minimum value of the Meter's range.*/
     min: PropTypes.number,
+    /** Maximum value of the Meter's before it shows an error.*/
+    idealMax: PropTypes.number,
+    /** Minimum value of the Meter's range before it shows an error.*/
+    idealMin: PropTypes.number,
     /** Current value of the Meter.*/
     value: PropTypes.number,
   };
@@ -20,7 +24,7 @@ function Meter(props) {
     const themeContext = useThemeContext();
     const {theme} = themeContext;
     
-    const {isLarge, label, max, min, value, ...moreProps} = props;
+    const {isLarge, label, max, min, idealMax, idealMin, value, ...moreProps} = props;
 
     const calculatPointerPosition = () => {
         // range of motion.
@@ -41,7 +45,15 @@ function Meter(props) {
         }
 
         return degrees;
-    };  
+    }; 
+
+    const validateRange = () => {
+        if (idealMax < value || value < idealMin) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     return (
         <div
@@ -67,6 +79,7 @@ function Meter(props) {
                         meter-value
                         meter-value-${theme}
                         ${isLarge ? 'meter-value-large' : ''}
+                        ${!validateRange() ? 'meter-error' : ''}
                     `}
                 >
                     {value}
@@ -77,6 +90,7 @@ function Meter(props) {
                     meter-bottom-hidden
                     meter-bottom-${theme}
                     ${isLarge ? 'meter-bottom-hidden-large' : ''}
+                    ${!validateRange() ? 'meter-error' : ''}
                 `}
             >
                 {label}
@@ -97,6 +111,8 @@ const defaultProps = {
     value: 50,
     min: 0,
     max: 100,
+    idealMin: 0,
+    idealMax: 100,
     isLarge: false
 }
 
