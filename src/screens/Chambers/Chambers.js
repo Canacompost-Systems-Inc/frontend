@@ -81,7 +81,7 @@ function Chambers() {
     const checkForSetValue = (state, property) => {
         let updatedSetValue = state[`${chambers[activeChamber].value}-${property}`];
 
-        if (updatedSetValue) {
+        if (updatedSetValue || updatedSetValue === 0) {
             return [updatedSetValue, true];
         } else {
             return [sensors[chambers[activeChamber].value][property], false];
