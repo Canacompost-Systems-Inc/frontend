@@ -91,7 +91,7 @@ function Advanced() {
                                     </div>
                                 );
                         }
-                    }) : null}
+                    }) : "No Actuator Data Available."}
                 </div>
             </div>
         </Template>

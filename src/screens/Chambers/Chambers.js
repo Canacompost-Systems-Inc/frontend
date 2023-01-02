@@ -180,7 +180,7 @@ function Chambers() {
                                         <div className="chamber-card">
                                             <h2 className="card-title">{handleTitles(property)}</h2>
                                             <div className="chamber-card-content">
-                                                <Meter isLarge min={0} max={100} value={sensors[chambers[activeChamber].value][property]} label={handleTitles(property)}/>
+                                                <Meter isLarge min={0} max={100} value={sensors[chambers[activeChamber].value][property] ? sensors[chambers[activeChamber].value][property] : 0} label={handleTitles(property)}/>
                                             </div>
                                             <div className='chamber-card-content-row'>
                                                 <button
@@ -201,7 +201,7 @@ function Chambers() {
                                                         checkForSetValue(savedSetValues, property)[0] === checkForSetValue(setValues, property)[0] &&
                                                         checkForSetValue(savedSetValues, property)[1] && checkForSetValue(setValues, property)[1] ? <br/> : null
                                                     }
-                                                    <b>{checkForSetValue(setValues, property)[0]}</b>
+                                                    <b>{checkForSetValue(setValues, property)[0] ? checkForSetValue(setValues, property)[0] : 0}</b>
                                                 </label>
                                                 <button
                                                     onClick={() => updateSetValue(checkForSetValue(setValues, property)[0] + 1, chambers[activeChamber].value, property)}

@@ -43,13 +43,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_1.air_temperature}
+                                            value={sensors.bioreactor_1.air_temperature ? sensors.bioreactor_1.air_temperature : 0}
                                             label="Air Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_1.humidity}
+                                            value={sensors.bioreactor_1.humidity ? sensors.bioreactor_1.humidity : 0}
                                             label="Humidity"
                                         />
                                     </div>
@@ -57,13 +57,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_1.soil_temperature}
+                                            value={sensors.bioreactor_1.soil_temperature ? sensors.bioreactor_1.soil_temperature : 0}
                                             label="Soil Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_1.c02}
+                                            value={sensors.bioreactor_1.c02 ? sensors.bioreactor_1.c02 : 0}
                                             label="CO2"
                                         />
                                     </div>
@@ -80,13 +80,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_2.air_temperature}
+                                            value={sensors.bioreactor_2.air_temperature ? sensors.bioreactor_2.air_temperature : 0}
                                             label="Air Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_2.humidity}
+                                            value={sensors.bioreactor_2.humidity ? sensors.bioreactor_2.humidity : 0}
                                             label="Humidity"
                                         />
                                     </div>
@@ -94,13 +94,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_2.soil_temperature}
+                                            value={sensors.bioreactor_2.soil_temperature ? sensors.bioreactor_2.soil_temperature : 0}
                                             label="Soil Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bioreactor_2.c02}
+                                            value={sensors.bioreactor_2.c02 ? sensors.bioreactor_2.c02 : 0}
                                             label="CO2"
                                         />
                                     </div>
@@ -117,13 +117,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bsf_reproduction.air_temperature}
+                                            value={sensors.bsf_reproduction.air_temperature ? sensors.bsf_reproduction.air_temperature : 0}
                                             label="Air Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bsf_reproduction.humidity}
+                                            value={sensors.bsf_reproduction.humidity ? sensors.bsf_reproduction.humidity : 0}
                                             label="Humidity"
                                         />
                                     </div>
@@ -131,13 +131,13 @@ function Dashboard() {
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bsf_reproduction.soil_temperature}
+                                            value={sensors.bsf_reproduction.soil_temperature ? sensors.bsf_reproduction.soil_temperature : 0}
                                             label="Soil Temp"
                                         />
                                         <Meter
                                             min={0}
                                             max={100}
-                                            value={sensors.bsf_reproduction.c02}
+                                            value={sensors.bsf_reproduction.c02 ? sensors.bsf_reproduction.c02 : 0}
                                             label="CO2"
                                         />
                                     </div>
@@ -151,12 +151,12 @@ function Dashboard() {
                                 <h2 className="card-title">Shredder</h2>
                                 <div className="card-content">
                                     <div className='card-row'>
-                                        <Meter min={0} max={100} value={sensors.shredder.air_temperature} label="Air Temp"/>
-                                        <Meter min={0} max={100} value={sensors.shredder.humidity} label="Humidity"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.air_temperature ? sensors.shredder.air_temperature : 0} label="Air Temp"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.humidity ? sensors.shredder.humidity : 0} label="Humidity"/>
                                     </div>
                                     <div className='card-row'>
-                                        <Meter min={0} max={100} value={sensors.shredder.soil_temperature} label="Soil Temp"/>
-                                        <Meter min={0} max={100} value={sensors.shredder.c02} label="CO2"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.soil_temperature ? sensors.shredder.soil_temperature : 0} label="Soil Temp"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.c02 ? sensors.shredder.c02 : 0} label="CO2"/>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@ function Dashboard() {
                             <div className="chamber-card">
                                 <h2 className="card-title">Shared Air</h2>
                                 <div className="card-content">
-                                    <Meter isLarge min={0} max={100} value={sensors.shared_air.pressure} label="Pressure"/>
+                                    <Meter isLarge min={0} max={100} value={sensors.shared_air.pressure ? sensors.shared_air.pressure : 0} label="Pressure"/>
                                 </div>
                             </div>
                         </Card>

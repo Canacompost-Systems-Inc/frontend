@@ -7,7 +7,7 @@ export const ActuatorsContext = React.createContext();
 const mockData = {
     sensors: {
         shared_air: {
-            pressure: 0,
+            pressure: null,
         },
         shredder: {
             humidity: 0,
@@ -51,7 +51,7 @@ function ActuatorsProvider(props) {
     }
       
     const postActuators = (newActuators, newSensors) => {
-        let data = {actuators: newActuators, sensors: newSensors};
+        let data = {actuators: newActuators, sensors: newSensors, ["py/object"]:"application.controller.dto.machine_state.MachineState"};
         axios.post('http://127.0.0.1:5000/state', data).catch(error => {
         console.log("Failed to update actuators")
         console.log(error)
