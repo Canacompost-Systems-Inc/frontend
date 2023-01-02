@@ -8,9 +8,11 @@
   --darkBlue: #05102B;
   --blue: #15223F;
   --green: #43DA66;
+  --red: #DC355D;
   --lightBlueGradient: linear-gradient(270deg, #57E3DB 0%, #5798E3 100%);
   --greenGradient:linear-gradient(180deg, #57E377 0%, #AEE357 100%);
-  --meterGradient:linear-gradient(180deg, #5CE476 0%, #E1E45C 44.79%, #FF5106 100%);
+  --meterGradient:linear-gradient(180deg, #5CE476 0%, #E1E45C 20%, #FF5106 100%);
+  --errorGradient: linear-gradient(180deg, #DC8535 0%, #DC355D 100%);
 
   /* SPACING */
   --spaceSmall: 0.5rem;

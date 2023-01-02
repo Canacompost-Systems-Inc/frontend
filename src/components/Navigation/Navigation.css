@@ -4,7 +4,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     padding: var(--spaceLarge) var(--space);
+    position: relative;
     transition: var(--transition);
     width: 20%;
 }

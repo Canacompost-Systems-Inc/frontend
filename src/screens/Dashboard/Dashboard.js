@@ -1,8 +1,14 @@
 import React from 'react';
+import Card from '../../components/Card';
+import Meter from '../../components/Meter';
 import Template from '../Template';
+import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import './Dashboard.css';
 
 function Dashboard() {
+    const actuatorContext = useActuatorsContext();
+    const {sensors} = actuatorContext;
+
     return (
         <Template>
             <div className="dashboard-header">
@@ -27,6 +33,146 @@ function Dashboard() {
                 <h1 className="screen-title">Dashboard</h1>
             </div>
             <div className="dashboard-main">
+                <div className="dashboard-main-cards">
+                    <div className={`dashboard-card`}>
+                        <Card>
+                            <div className="chamber-card">
+                                <h2 className="card-title">Bioreactor 1</h2>
+                                <div className="card-content">
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_1.air_temperature}
+                                            label="Air Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_1.humidity}
+                                            label="Humidity"
+                                        />
+                                    </div>
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_1.soil_temperature}
+                                            label="Soil Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_1.c02}
+                                            label="CO2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className={`dashboard-card`}>
+                        <Card>
+                            <div className="chamber-card">
+                                <h2 className="card-title">Bioreactor 2</h2>
+                                <div className="card-content">
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_2.air_temperature}
+                                            label="Air Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_2.humidity}
+                                            label="Humidity"
+                                        />
+                                    </div>
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_2.soil_temperature}
+                                            label="Soil Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bioreactor_2.c02}
+                                            label="CO2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className={`dashboard-card`}>
+                        <Card>
+                            <div className="chamber-card">
+                                <h2 className="card-title">BSF Reproduction</h2>
+                                <div className="card-content">
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bsf_reproduction.air_temperature}
+                                            label="Air Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bsf_reproduction.humidity}
+                                            label="Humidity"
+                                        />
+                                    </div>
+                                    <div className='card-row'>
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bsf_reproduction.soil_temperature}
+                                            label="Soil Temp"
+                                        />
+                                        <Meter
+                                            min={0}
+                                            max={100}
+                                            value={sensors.bsf_reproduction.c02}
+                                            label="CO2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className={`dashboard-card`}>
+                        <Card>
+                            <div className="chamber-card">
+                                <h2 className="card-title">Shredder</h2>
+                                <div className="card-content">
+                                    <div className='card-row'>
+                                        <Meter min={0} max={100} value={sensors.shredder.air_temperature} label="Air Temp"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.humidity} label="Humidity"/>
+                                    </div>
+                                    <div className='card-row'>
+                                        <Meter min={0} max={100} value={sensors.shredder.soil_temperature} label="Soil Temp"/>
+                                        <Meter min={0} max={100} value={sensors.shredder.c02} label="CO2"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                    <div className={`dashboard-card`}>
+                        <Card>
+                            <div className="chamber-card">
+                                <h2 className="card-title">Shared Air</h2>
+                                <div className="card-content">
+                                    <Meter isLarge min={0} max={100} value={sensors.shared_air.pressure} label="Pressure"/>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                </div>
             </div>
         </Template>
     )

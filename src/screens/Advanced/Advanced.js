@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from '../../components/Card'
-import Range from '../../components/Range'
-import Radio from '../../components/Radio'
-import Switch from '../../components/Switch'
+import Card from '../../components/Card';
+import Range from '../../components/Range';
+import Radio from '../../components/Radio';
+import Switch from '../../components/Switch';
 import Template from '../Template';
 import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import './Advanced.css';
@@ -49,7 +49,7 @@ function Advanced() {
             </div>
             <div className="advanced-main">
                 <div className="advanced-main-row">
-                    {actuators.map(item => {
+                    {Array.isArray(actuators) && actuators.length ? actuators.map(item => {
                         switch(item.type) {
                             case "SWITCH":
                                 return (
@@ -57,8 +57,8 @@ function Advanced() {
                                         <Card>
                                             <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
                                             <Switch
-                                                onChange={(val) => updateData(val, item.id)}
-                                                value={item.value ? item.value : false}
+                                                onChange={(val) => updateData(val.toString(), item.id)}
+                                                value={item.value === "true"}
                                             />
                                         </Card>
                                     </div> 
@@ -70,8 +70,8 @@ function Advanced() {
                                             <label htmlFor={item.id} className="card-label">{`${item.id} - ${item.description}`}</label>
                                             <Range
                                                 id={item.id}
-                                                onChange={(val) => updateData(val, item.id)}
-                                                value={item.value ? item.value : 0}
+                                                onChange={(val) => updateData(val.toString(), item.id)}
+                                                value={item.value ? Number(item.value) : 0}
                                             />
                                         </Card>
                                     </div>
@@ -83,15 +83,15 @@ function Advanced() {
                                             <div className="card-label">{`${item.id} - ${item.description}`}</div>
                                             <Radio
                                                 id={item.id}
-                                                onChange={(val) => updateData(val, item.id)}
+                                                onChange={(val) => updateData(val.toString(), item.id)}
                                                 options={item.options}
-                                                value={item.value ? item.value : 0}
+                                                value={item.value ? Number(item.value) : 0}
                                             />
                                         </Card>
                                     </div>
                                 );
                         }
-                    })}
+                    }) : null}
                 </div>
             </div>
         </Template>
