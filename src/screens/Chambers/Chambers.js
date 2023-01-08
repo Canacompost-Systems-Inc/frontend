@@ -4,6 +4,7 @@ import Meter from '../../components/Meter';
 import Template from '../Template';
 import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
+import { handleTitles } from "../../helpers/helpers";
 import './Chambers.css';
 
 function Chambers() {
@@ -55,16 +56,6 @@ function Chambers() {
             return chambers.length - 1;
         } else {
             return val;
-        }
-    }
-
-    const handleTitles = (val) => {
-        if (val.includes("_")) {
-            const textArray = val.split("_");
-            
-            return textArray.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        } else {
-            return val.charAt(0).toUpperCase() + val.slice(1);
         }
     }
 
