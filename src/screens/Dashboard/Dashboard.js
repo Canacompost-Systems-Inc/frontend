@@ -53,8 +53,8 @@ function Dashboard() {
                 <div className="dashboard-main-routine">
                     <Card>
                         <div className="dashboard-main-routine-row">
-                            <b>Active Routine</b>
-                            <span>Routine Name</span>
+                            <b>Active Task</b>
+                            <span>Task Name</span>
                         </div>
                     </Card>
                 </div>

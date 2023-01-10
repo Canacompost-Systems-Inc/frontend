@@ -1,0 +1,64 @@
+@import '../../App.css';
+
+.tasks-header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tasks-header-title {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.screen-title {
+    font-size: 1.5em;
+    margin: 0;
+    margin-left: var(--spaceSmall);
+}
+
+.tasks-main {
+    height: 100%;
+    padding: var(--space) 0;
+    width: 100%;
+}
+
+.tasks-sub-title {
+    font-size: 1.2em;
+    padding-bottom: var(--space);
+    padding-top: var(--space);
+    margin: 0;
+}
+
+.tasks-sub-title:first-child {
+    padding-top: 0;
+}
+
+.tasks-queue-item-active {
+    border: 2px solid var(--green);
+    border-radius: var(--borderRadius);
+}
+
+
+.tasks-main-queue {
+    border-bottom-left-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius);
+    border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    height: 82%;
+    justify-content: flex-start;
+    margin-right: var(--space);
+    overflow-y: scroll;
+    padding-right: var(--space);
+    row-gap: var(--space);
+    width: 100%;
+}
+
+.tasks-queue-item:first-child {
+    border: 2px solid var(--green);
+    border-radius: var(--borderRadius);
+}
