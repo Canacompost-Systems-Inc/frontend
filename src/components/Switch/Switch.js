@@ -8,7 +8,7 @@ const propTypes = {
     hasIcons: PropTypes.bool,
   
     /** Label to be displayed on the left of the switch.*/
-    labeLeft: PropTypes.string,
+    labelLeft: PropTypes.string,
 
     /** Label to be displayed on the right of the switch.*/
     labelRight: PropTypes.string,
