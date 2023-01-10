@@ -38,7 +38,7 @@ function Advanced() {
     }
 
     const postMetaState = (val) => {
-        axios.post('http://127.0.0.1:5000/meta_state', {disable_automated_routines: val}).then(() => {
+        axios.post('http://127.0.0.1:5000/meta_state', {disable_automated_routines: val, ["py/object"]:"application.controller.dto.system_meta_state.SystemMetaState"}).then(() => {
             setMetaState(val)
         })
         .catch(error => {
