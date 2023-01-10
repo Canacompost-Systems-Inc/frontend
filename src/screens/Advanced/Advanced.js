@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import Card from '../../components/Card';
 import Range from '../../components/Range';
 import Radio from '../../components/Radio';
@@ -10,6 +11,8 @@ import './Advanced.css';
 function Advanced() {
     const actuatorContext = useActuatorsContext();
     const {actuators, updateActuators} = actuatorContext;
+
+    const [metaState, setMetaState] = React.useState(false);
 
     const updateData = (val, id) => {
         const updatedActuators = actuators.map(item => {
@@ -24,6 +27,29 @@ function Advanced() {
         })
         updateActuators(updatedActuators)
     };
+
+    const getMetaState = () => {
+        axios.get('http://127.0.0.1:5000/meta_state').then(resp => {
+            setMetaState(resp.disable_automated_routines);
+        }).catch(error => {
+            console.log("Failed to retrieve meta state")
+            console.log(error)
+        });
+    }
+
+    const postMetaState = (val) => {
+        axios.post('http://127.0.0.1:5000/meta_state', {disable_automated_routines: val}).then(() => {
+            setMetaState(val)
+        })
+        .catch(error => {
+            console.log("Failed to update meta state")
+            console.log(error)
+        });
+    }
+
+    React.useEffect(() => {
+        getMetaState();
+    }, []);
 
     return (
         <Template>
@@ -46,6 +72,9 @@ function Advanced() {
                 </svg>
                 <h1 className="screen-title">Advanced</h1>
                 </span>
+                <Card>
+                    <Switch value={metaState} onChange={(val) => postMetaState(val)} labelLeft={"Disable Automated Tasks"}/>
+                </Card>
             </div>
             <div className="advanced-main">
                 <div className="advanced-main-row">
