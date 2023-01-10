@@ -5,12 +5,16 @@ import Template from '../Template';
 import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
 import { useDashboardDisplayContext } from '../../contexts/dashboardDisplayContext';
+import { useTaskQueueContext } from '../../contexts/taskQueueContext';
 import { handleTitles } from "../../helpers/helpers";
 import './Dashboard.css';
 
 function Dashboard() {
     const actuatorContext = useActuatorsContext();
     const {sensors} = actuatorContext;
+
+    const taskQueContext = useTaskQueueContext();
+    const {taskQueue} = taskQueContext;
 
     const themeContext = useThemeContext();
     const {theme} = themeContext;
@@ -54,7 +58,7 @@ function Dashboard() {
                     <Card>
                         <div className="dashboard-main-routine-row">
                             <b>Active Task</b>
-                            <span>Task Name</span>
+                            <span>{Array.isArray(taskQueue) && taskQueue.length ? taskQueue[0].routine.name : "No Active Tasks"}</span>
                         </div>
                     </Card>
                 </div>
