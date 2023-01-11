@@ -1,5 +1,10 @@
 @import '../../App.css';
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
 .tasks-header {
     align-items: center;
     display: flex;
@@ -49,7 +54,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space);
-    height: 82%;
+    height: 65%;
     justify-content: flex-start;
     margin-right: var(--space);
     overflow-y: scroll;
@@ -58,7 +63,157 @@
     width: 100%;
 }
 
-.tasks-queue-item:first-child {
+.tasks-add-modal-backdrop {
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
+.tasks-add-modal {
+    align-items: flex-start;
+    animation: fadeIn 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    border-radius: var(--borderRadius);
+    display: flex;
+    flex-direction: column;
+    height: 33rem;
+    opacity: 0;
+    padding: var(--spaceLarge) var(--space);
+    width: 40rem;
+    z-index: 999;
+}
+
+.tasks-add-modal-light {
+    background: var(--offWhite);
+}
+
+.tasks-add-modal-dark {
+    background: var(--blue);
+}
+
+.tasks-add-modal h3 {
+    font-size: 1.2em;
+    margin-bottom: var(--space);
+}
+
+.tasks-add-modal-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+    padding-right: var(--space);
+    width: 100%;
+    z-index: 999;
+}
+
+.tasks-add-modal-list li {
+    border: 2px solid rgba(0,0,0,0);
+    border-radius: var(--borderRadius);
+    margin-bottom: var(--spaceSmall);
+    width: 100%;
+}
+
+.tasks-add-modal-list li:active {
+    border: 2px solid var(--green);
+}
+
+.task-btn {
+    background: var(--darkBlue);
+    border: none;
+    border-radius: var(--borderRadius);
+    color: var(--white);
+    font-weight: bold;
+    height: 2.5rem;
+    width: 100%;
+}
+
+.task-btn-light {
+    background: var(--white);
+    color: var(--darkBlue);
+}
+
+.task-btn-dark {
+    background: var(--darkBlue);
+    color: var(--white);
+}
+
+.task-selected-section {
+    margin-top: var(--space);
+    width: 100%;
+}
+
+.task-selected {
     border: 2px solid var(--green);
     border-radius: var(--borderRadius);
+    font-weight: bold;
+    margin-top: var(--space);
+    text-align: center;
+    width: 100%;
+}
+
+.task-no-selection {
+    border: none;
+    border-radius: var(--borderRadius);
+    margin-top: var(--space);
+    text-align: center;
+    width: 100%;
+}
+
+.tasks-modal-footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: var(--spaceLarge);
+    width: 100%;
+}
+
+.tasks-modal-footer button {
+    border-radius: 3px;
+    padding: var(--spaceSmall) var(--space) ;
+}
+
+.tasks-modal-footer button:last-child {
+    background: var(--greenGradient);
+    border: var(--green);
+    color: var(--darkBlue);
+    font-weight: bold;
+    margin-left: var(--space);
+}
+
+.tasks-modal-footer button:last-child:disabled {
+    background: grey;
+    color: lightgray;
+}
+
+.cancel-btn {
+    background: rgba(0,0,0,0);
+    border: 1px solid var(--white);
+    border-radius: 3px;
+    color: var(--white);
+    font-weight: bold;
+    padding: var(--spaceSmall) var(--space) ;
+}
+
+.cancel-btn-dark {
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+.cancel-btn-light {
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
 }

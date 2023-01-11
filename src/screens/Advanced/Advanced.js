@@ -30,7 +30,7 @@ function Advanced() {
 
     const getMetaState = () => {
         axios.get('http://127.0.0.1:5000/meta_state').then(resp => {
-            setMetaState(resp.disable_automated_routines);
+            setMetaState(resp.data.disable_automated_routines);
         }).catch(error => {
             console.log("Failed to retrieve meta state")
             console.log(error)
