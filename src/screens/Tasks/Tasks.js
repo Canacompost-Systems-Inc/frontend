@@ -411,7 +411,7 @@ function Tasks() {
                 <h2 className="tasks-sub-title">Queue</h2>
                 <div className="tasks-main-queue">
                     {
-                        Array.isArray(taskQueue) && taskQueue.length > 1 ? taskQueue.slice(1).map(task => {
+                        Array.isArray(taskQueue) && taskQueue.length > 0 ? taskQueue.map(task => {
                             return (
                                 <div className="tasks-queue-item">
                                     <Card>{task.routine.name}</Card>

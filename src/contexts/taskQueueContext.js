@@ -33,7 +33,7 @@ function TaskQueueProvider(props) {
         getTaskQueue();
         setInterval(() => {
             getTaskQueue();
-        },2000)
+        },1000)
     }, []);
 
 
