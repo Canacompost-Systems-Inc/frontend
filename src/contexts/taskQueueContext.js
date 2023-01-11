@@ -4,7 +4,7 @@ import axios from "axios";
 export const TaskQueueContext = React.createContext();
 
 function TaskQueueProvider(props) {
-    const [activeRoutine, setActiveRoutine] = React.useState([]);
+    const [activeRoutine, setActiveRoutine] = React.useState(null);
     const [taskQueue, setTaskQueue] = React.useState([]);
 
     const getTaskQueue = () => {
