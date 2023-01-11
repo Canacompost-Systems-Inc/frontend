@@ -14,7 +14,7 @@ function Dashboard() {
     const {sensors} = actuatorContext;
 
     const taskQueContext = useTaskQueueContext();
-    const {taskQueue} = taskQueContext;
+    const {activeRoutine} = taskQueContext;
 
     const themeContext = useThemeContext();
     const {theme} = themeContext;
@@ -58,7 +58,7 @@ function Dashboard() {
                     <Card>
                         <div className="dashboard-main-routine-row">
                             <b>Active Task</b>
-                            <span>{Array.isArray(taskQueue) && taskQueue.length ? taskQueue[0].routine.name : "No Active Tasks"}</span>
+                            <span>{(activeRoutine !== null) ? activeRoutine.name : "No Active Tasks"}</span>
                         </div>
                     </Card>
                 </div>

@@ -7,7 +7,7 @@ import './Tasks.css';
 
 function Tasks() {
     const taskQueContext = useTaskQueueContext();
-    const {taskQueue, addToQueue} = taskQueContext;
+    const {activeRoutine, taskQueue, addToQueue} = taskQueContext;
 
     const themeContext = useThemeContext();
     const {theme} = themeContext;
@@ -52,7 +52,57 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("Flush Air Loop")}
+                                            onClick={() => setSelectedTask("CoolAndDehumidifyBioreactor1Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Cool And Dehumidify Bioreactor 1
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("CoolAndDehumidifyBioreactor2Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Cool And Dehumidify Bioreactor 2
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("CoolAndDehumidifyBSFReproductionRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Cool And Dehumidify BSF Reproduction
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("CoolAndDehumidifyShredderStorageRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Cool And Dehumidify Shredder Storage
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("CoolAndDehumidifySieveRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Cool And Dehumidify Sieve
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("FlushAirLoopRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Flush Air Loop
@@ -62,17 +112,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("Sanitize Air Loop")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Sanitize Air Loop
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Flush Compost Loop")}
+                                            onClick={() => setSelectedTask("FlushCompostLoopRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Flush Compost Loop
@@ -82,167 +122,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("Sanitize Compost Loop")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Sanitize Compost Loop
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Move Compost To Bioreactor 1")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Move Compost To Bioreactor 1
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Move Compost To Bioreactor 2")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Move Compost To Bioreactor 2
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Move Compost To BSF Reproduction")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Move Compost To BSF Reproduction
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Move Compost To Sieve")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Move Compost To Sieve
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Cool And Dehumidify Shredder Storage")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Cool and Dehumidify Shredder Storage
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Cool And Dehumidify Bioreactor 1")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Cool and Dehumidify Bioreactor 1
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Cool And Dehumidify Bioreactor 2")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Cool and Dehumidify Bioreactor 2
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Cool And Dehumidify BSF Reproduction")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Cool and Dehumidify BSF Reproduction
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Cool And Dehumidify Sieve")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Cool and Dehumidify Sieve
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Humidify Shredder Storage")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Humidify Shredder Storage
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("Humidify Bioreactor 1")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Humidify Bioreactor 1
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("HumidifyBioreactor2")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Humidify Bioreactor 2
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("HumidifyBSFReproduction")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Humidify BSF Reproduction
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("HumidifySieve")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Humidify Sieve
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("HeatShredderStorage")}
-                                            className={`task-btn task-btn-${theme}`}
-                                        >
-                                            Heat Shredder Storage
-                                        </button>
-                                    </Card>
-                                </li>
-                                <li>
-                                    <Card>
-                                        <button
-                                            onClick={() => setSelectedTask("HeatBioreactor1")}
+                                            onClick={() => setSelectedTask("HeatBioreactor1Routine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Heat Bioreactor 1
@@ -252,7 +132,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("HeatBioreactor2")}
+                                            onClick={() => setSelectedTask("HeatBioreactor2Routine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Heat Bioreactor 2
@@ -262,7 +142,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("HeatBSFReproduction")}
+                                            onClick={() => setSelectedTask("HeatBSFReproductionRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Heat BSF Reproduction
@@ -272,27 +152,147 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("HeatSieve")}
+                                            onClick={() => setSelectedTask("HeatShredderStorageRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
-                                            Heat Sieve
+                                            Heat Shredder Storage
                                         </button>
                                     </Card>
                                 </li>
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("ReadSensorsShredderStorage")}
+                                            onClick={() => setSelectedTask("HumidifyBioreactor1Routine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
-                                            Read Sensors Shredder Storage
+                                            Humidify Bioreactor 1
                                         </button>
                                     </Card>
                                 </li>
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("ReadSensorsBioreactor1")}
+                                            onClick={() => setSelectedTask("HumidifyBioreactor2Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Humidify Bioreactor 2
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("HumidifyBSFReproductionRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Humidify BSF Reproduction
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("HumidifyShredderStorageRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Humidify Shredder Storage
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBioreactor1ToBSFReproductionRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Bioreactor 1 To BSF Reproduction
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBioreactor1ToShredderStorageRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Bioreactor 1 To Shredder Storage
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBioreactor2ToBSFReproductionRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Bioreactor 2 To BSF Reproduction
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBioreactor2ToShredderStorageRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Bioreactor 2 To Shredder Storage
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBSFReproductionToBioreactor1Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From BSF Reproduction To Bioreactor 1
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBSFReproductionToBioreactor2Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From BSF Reproduction To Bioreactor 2
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromBSFReproductionToSieveRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From BSF Reproduction To Sieve
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromShredderStorageToBioreactor1Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Shredder Storage To Bioreactor 1
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("MoveCompostFromShredderStorageToBioreactor2Routine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Move Compost From Shredder Storage To Bioreactor 2
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("ReadSensorsBioreactor1Routine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Read Sensors Bioreactor 1
@@ -302,7 +302,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("ReadSensorsBioreactor2")}
+                                            onClick={() => setSelectedTask("ReadSensorsBioreactor2Routine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Read Sensors Bioreactor 2
@@ -312,7 +312,7 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("ReadSensorsBSFReproduction")}
+                                            onClick={() => setSelectedTask("ReadSensorsBSFReproductionRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Read Sensors BSF Reproduction
@@ -322,10 +322,40 @@ function Tasks() {
                                 <li>
                                     <Card>
                                         <button
-                                            onClick={() => setSelectedTask("ReadSensorsSieve")}
+                                            onClick={() => setSelectedTask("ReadSensorsShredderStorageRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Read Sensors Shredder Storage
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("ReadSensorsSieveRoutine")}
                                             className={`task-btn task-btn-${theme}`}
                                         >
                                             Read Sensors Sieve
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("SanitizeAirLoopRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Sanitize Air Loop
+                                        </button>
+                                    </Card>
+                                </li>
+                                <li>
+                                    <Card>
+                                        <button
+                                            onClick={() => setSelectedTask("SanitizeCompostLoopRoutine")}
+                                            className={`task-btn task-btn-${theme}`}
+                                        >
+                                            Sanitize Compost Loop
                                         </button>
                                     </Card>
                                 </li>
@@ -372,9 +402,9 @@ function Tasks() {
             <div className="tasks-main">
                 <h2 className="tasks-sub-title">Active Task</h2>
                 {
-                    Array.isArray(taskQueue) && taskQueue.length ? (
+                    (activeRoutine !== null) ? (
                         <div className="tasks-queue-item-active">
-                            <Card>{taskQueue[0].routine.name}</Card>
+                            <Card>{activeRoutine.name}</Card>
                         </div>
                     ) : "No Active Tasks."
                 }

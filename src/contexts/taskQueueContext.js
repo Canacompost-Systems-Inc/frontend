@@ -4,10 +4,12 @@ import axios from "axios";
 export const TaskQueueContext = React.createContext();
 
 function TaskQueueProvider(props) {
+    const [activeRoutine, setActiveRoutine] = React.useState([]);
     const [taskQueue, setTaskQueue] = React.useState([]);
 
     const getTaskQueue = () => {
         axios.get('http://127.0.0.1:5000/task_queue').then(resp => {
+            setActiveRoutine(resp.data.currently_running_routine);
             setTaskQueue(resp.data.tasks);
         }).catch(error => {
             console.log("Failed to retrieve task queue")
@@ -23,7 +25,7 @@ function TaskQueueProvider(props) {
     }
 
     const addToQueue = (val) => {
-        const newData = {tasks:[...taskQueue, {routine: {name: val}}]};
+        const newData = {["py/object"]:"application.controller.dto.task_queue.TaskQueue", tasks:[{["py/object"]:"application.controller.dto.task.Task", routine: {["py/object"]:"application.controller.dto.routine.Routine", name: val}}]};
         postTaskQueue(newData);
     }
 
@@ -35,7 +37,7 @@ function TaskQueueProvider(props) {
     }, []);
 
 
-    return <TaskQueueContext.Provider value={{taskQueue, addToQueue}} {...props} />;
+    return <TaskQueueContext.Provider value={{activeRoutine, taskQueue, addToQueue}} {...props} />;
 }
 
 function useTaskQueueContext() {
