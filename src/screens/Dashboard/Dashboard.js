@@ -6,7 +6,7 @@ import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
 import { useDashboardDisplayContext } from '../../contexts/dashboardDisplayContext';
 import { useTaskQueueContext } from '../../contexts/taskQueueContext';
-import { handleTitles, constrainNumber } from "../../helpers/helpers";
+import { handleTitles, constrainNumber, addBrackets } from "../../helpers/helpers";
 import './Dashboard.css';
 
 function Dashboard() {
@@ -102,7 +102,7 @@ function Dashboard() {
                                                                     case 1:
                                                                         return (
                                                                             <div className="dashboard-card-table" key={`${property}-${nestedProperty}`}>
-                                                                                {handleTitles(nestedProperty).replace("Temperature", "Temp") + " (" + measurements.get(nestedProperty).unit + ")"}
+                                                                                {handleTitles(nestedProperty).replace("Temperature", "Temp") + addBrackets((measurements.get(nestedProperty) ?? {}).unit ?? "")}
                                                                                 <b>{sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0}</b>
                                                                             </div>
                                                                         )

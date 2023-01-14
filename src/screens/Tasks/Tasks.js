@@ -87,7 +87,11 @@ function Tasks() {
                                             </Card>
                                         </li>
                                     )
-                                }) : "No Routine Data Available."}
+                                }) : (
+                                    <div className="task-no-selection">
+                                        <Card>No Routine Data Available.</Card>
+                                    </div>
+                                )}
                             </ul>
                             <div className="task-selected-section">
                                 <div>Task Selected:</div>

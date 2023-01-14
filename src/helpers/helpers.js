@@ -22,3 +22,11 @@ export const constrainNumber = (val) => {
     }
     return (Math.floor(x * 10) / 10).toFixed(1);
 }
+
+export const addBrackets = (val) => {
+    if (val) {
+        return " (" + val + ")";
+    } else {
+        return val;
+    }
+}
