@@ -48,7 +48,7 @@ function Meter(props) {
     }; 
 
     const validateRange = () => {
-        if (idealMax < value || value < idealMin) {
+        if (value != 0 && (idealMax < value || value < idealMin)) {
             return false;
         } else {
             return true;
