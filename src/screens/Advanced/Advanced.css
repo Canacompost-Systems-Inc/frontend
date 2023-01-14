@@ -50,7 +50,7 @@
     border-bottom-left-radius: var(--borderRadius);
     border-bottom-right-radius: var(--borderRadius);
     border-radius: var(--borderRadius) var(--borderRadius) 0 0;
-    height: 100%;
+    height: 90%;
     margin-right: var(--space);
     overflow-y: scroll;
     padding-right: var(--space);
