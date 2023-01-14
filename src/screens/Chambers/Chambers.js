@@ -4,7 +4,8 @@ import Meter from '../../components/Meter';
 import Template from '../Template';
 import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
-import { handleTitles } from "../../helpers/helpers";
+import { useDashboardDisplayContext } from '../../contexts/dashboardDisplayContext';
+import { handleTitles, constrainNumber } from "../../helpers/helpers";
 import './Chambers.css';
 
 function Chambers() {
@@ -22,6 +23,9 @@ function Chambers() {
 
     const themeContext = useThemeContext();
     const {theme} = themeContext;
+
+    const dashboardDisplayContext = useDashboardDisplayContext();
+    const {measurements} = dashboardDisplayContext;
 
     const [activeChamber, setActiveChamber] = React.useState(0);
     
@@ -171,7 +175,15 @@ function Chambers() {
                                         <div className="chamber-card">
                                             <h2 className="card-title">{handleTitles(property)}</h2>
                                             <div className="chamber-card-content">
-                                                <Meter isLarge min={0} max={100} value={sensors[chambers[activeChamber].value][property] ? sensors[chambers[activeChamber].value][property] : 0} label={handleTitles(property)}/>
+                                                <Meter
+                                                    isLarge
+                                                    min={(measurements.get(property) ?? {}).min ?? 0}
+                                                    max={(measurements.get(property) ?? {}).max ?? 100}
+                                                    idealMin={(measurements.get(property) ?? {}).idealMin ?? 0}
+                                                    idealMax={(measurements.get(property) ?? {}).idealMax ?? 100}
+                                                    value={constrainNumber(sensors[chambers[activeChamber].value][property] ? sensors[chambers[activeChamber].value][property] : 0)}
+                                                    label={handleTitles(property)}
+                                                />
                                             </div>
                                             <div className='chamber-card-content-row'>
                                                 <button

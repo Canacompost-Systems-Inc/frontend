@@ -6,7 +6,7 @@ import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
 import { useDashboardDisplayContext } from '../../contexts/dashboardDisplayContext';
 import { useTaskQueueContext } from '../../contexts/taskQueueContext';
-import { handleTitles } from "../../helpers/helpers";
+import { handleTitles, constrainNumber } from "../../helpers/helpers";
 import './Dashboard.css';
 
 function Dashboard() {
@@ -20,7 +20,7 @@ function Dashboard() {
     const {theme} = themeContext;
 
     const dashboardDisplayContext = useDashboardDisplayContext();
-    const {dashboardDisplay, handleDashboardDisplay} = dashboardDisplayContext;
+    const {dashboardDisplay, handleDashboardDisplay, measurements} = dashboardDisplayContext;
 
     return (
         <Template>
@@ -80,7 +80,7 @@ function Dashboard() {
                                                                         return (
                                                                             <div className={`dashboard-card-sensor dashboard-card-sensor-${theme}`} key={`${property}-${nestedProperty}`}>
                                                                                 <div className="dashboard-card-sensor-value">
-                                                                                    {sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0}
+                                                                                    {constrainNumber(sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0)}
                                                                                 </div>
                                                                                 <div className="dashboard-card-sensor-title">
                                                                                     {handleTitles(nestedProperty).replace("Temperature", "Temp")}
@@ -91,16 +91,18 @@ function Dashboard() {
                                                                         return (
                                                                             <Meter
                                                                                 key={`${property}-${nestedProperty}`}
-                                                                                min={0}
-                                                                                max={100}
-                                                                                value={sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0}
+                                                                                min={(measurements.get(nestedProperty) ?? {}).min ?? 0}
+                                                                                max={(measurements.get(nestedProperty) ?? {}).max ?? 100}
+                                                                                idealMin={(measurements.get(nestedProperty) ?? {}).idealMin ?? 0}
+                                                                                idealMax={(measurements.get(nestedProperty) ?? {}).idealMax ?? 100}
+                                                                                value={constrainNumber(sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0)}
                                                                                 label={handleTitles(nestedProperty).replace("Temperature", "Temp")}
                                                                             />
                                                                         )
                                                                     case 1:
                                                                         return (
                                                                             <div className="dashboard-card-table" key={`${property}-${nestedProperty}`}>
-                                                                                {handleTitles(nestedProperty).replace("Temperature", "Temp")}
+                                                                                {handleTitles(nestedProperty).replace("Temperature", "Temp") + " (" + measurements.get(nestedProperty).unit + ")"}
                                                                                 <b>{sensors[property][nestedProperty] ? sensors[property][nestedProperty] : 0}</b>
                                                                             </div>
                                                                         )
