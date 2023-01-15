@@ -7,31 +7,36 @@ export const ActuatorsContext = React.createContext();
 const mockData = {
     sensors: {
         shared_air: {
-            pressure: null,
+            flowrate: 0,
+            o3: 0,
         },
         shredder: {
+            temperature: 0,
             humidity: 0,
-            c02: 0,
-            air_temperature: 0,
-            soil_temperature: 0
+            co2: 0,
+            pressure: 0,
+            h2: 0
         },
         bioreactor_1: {
+            temperature: 0,
             humidity: 0,
-            c02: 0,
-            air_temperature: 0,
-            soil_temperature: 0
+            co2: 0,
+            pressure: 0,
+            h2: 0
         },
         bioreactor_2: {
+            temperature: 0,
             humidity: 0,
-            c02: 0,
-            air_temperature: 0,
-            soil_temperature: 0
+            co2: 0,
+            pressure: 0,
+            h2: 0
         },
         bsf_reproduction: {
+            temperature: 0,
             humidity: 0,
-            c02: 0,
-            air_temperature: 0,
-            soil_temperature: 0
+            co2: 0,
+            pressure: 0,
+            h2: 0
         }
     }
 };
@@ -71,7 +76,7 @@ function ActuatorsProvider(props) {
         getActuators();
         setInterval(() => {
             getActuators();
-        }, 5000);
+        }, 1000);
     }, []);
 
     return <ActuatorsContext.Provider value={{actuators, sensors, updateActuators, updateSensors}} {...props} />;
