@@ -17,7 +17,6 @@ function DashboardDisplayProvider(props) {
 
     const getMeasurement = () => {
         axios.get('http://127.0.0.1:5000/measurement').then(resp => {
-            //setMeasurements(resp.data.measurements.reduce((map, obj) => (map[obj.name] = obj.val, map), {}));
             setMeasurements(new Map(resp.data.measurements.map((obj) => [obj.name, obj])));
             console.log(measurements)
         }).catch(error => {
