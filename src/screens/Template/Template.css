@@ -9,7 +9,7 @@
     height: 100vh;
     padding: var(--spaceLarge);
     transition: var(--transition);
-    width:80%;
+    width:90%;
 }
 
 .page-container-dark {

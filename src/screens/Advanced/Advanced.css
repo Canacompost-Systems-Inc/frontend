@@ -23,13 +23,34 @@
     height: 100%;
     padding: var(--space) 0;
     width: 100%;
+    position: relative;
+}
+
+.diagram-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 10rem;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.system-diagram-image {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .advanced-main-row {
     border-bottom-left-radius: var(--borderRadius);
     border-bottom-right-radius: var(--borderRadius);
     border-radius: var(--borderRadius) var(--borderRadius) 0 0;
-    height: 100%;
+    height: 90%;
     margin-right: var(--space);
     overflow-y: scroll;
     padding-right: var(--space);
