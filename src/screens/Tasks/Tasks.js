@@ -4,6 +4,7 @@ import Card from '../../components/Card';
 import Template from '../Template';
 import { useThemeContext } from '../../contexts/themeContext';
 import { useTaskQueueContext } from '../../contexts/taskQueueContext';
+import { friendlyNameifyRoutine, unfriendlyNameifyRoutine } from "../../helpers/helpers";
 import './Tasks.css';
 
 function Tasks() {
@@ -30,14 +31,6 @@ function Tasks() {
     React.useEffect(() => {
         getRoutine();
     }, []);
-
-    function friendlyNameify(name) {
-        return name.replace(/[A-Z0-9][^A-Z0-9]*/g, (match, offset) => {return match + " "}).replace("B S F", "BSF").replace(/ Routine/, "");
-    };
-
-    function unfriendlyNameify(name) {
-        return name.replaceAll(" ", "") + "Routine";
-    };
 
     return (
         <Template>
@@ -79,10 +72,10 @@ function Tasks() {
                                         <li>
                                             <Card>
                                                 <button
-                                                    onClick={() => setSelectedTask(friendlyNameify(item.name))}
+                                                    onClick={() => setSelectedTask(friendlyNameifyRoutine(item.name))}
                                                     className={`task-btn task-btn-${theme}`}
                                                 >
-                                                    {friendlyNameify(item.name)}
+                                                    {friendlyNameifyRoutine(item.name)}
                                                 </button>
                                             </Card>
                                         </li>
@@ -119,7 +112,7 @@ function Tasks() {
                                 </button>
                                 <button
                                     onClick={() => {
-                                        addToQueue(unfriendlyNameify(selectedTask));
+                                        addToQueue(unfriendlyNameifyRoutine(selectedTask));
                                         setModalVisible(false);
                                         setSelectedTask(null)
                                     }}
@@ -137,7 +130,7 @@ function Tasks() {
                 {
                     (activeRoutine !== null) ? (
                         <div className="tasks-queue-item-active">
-                            <Card>{friendlyNameify(activeRoutine.name)}</Card>
+                            <Card>{friendlyNameifyRoutine(activeRoutine.name)}</Card>
                         </div>
                     ) : "No Active Tasks."
                 }
@@ -147,7 +140,7 @@ function Tasks() {
                         Array.isArray(taskQueue) && taskQueue.length ? taskQueue.map(task => {
                             return (
                                 <div className="tasks-queue-item">
-                                    <Card>{friendlyNameify(task.routine.name)}</Card>
+                                    <Card>{friendlyNameifyRoutine(task.routine.name)}</Card>
                                 </div>  
                             )
                         }) : "There are no tasks in the queue."

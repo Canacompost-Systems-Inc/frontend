@@ -30,3 +30,12 @@ export const addBrackets = (val) => {
         return val;
     }
 }
+
+export const friendlyNameifyRoutine = (name) => {
+    return name.replace(/[A-Z0-9][^A-Z0-9]*/g, (match, offset) => {return match + " "}).replace("B S F", "BSF").replace(/ Routine/, "");
+}
+
+
+export const unfriendlyNameifyRoutine = (name) => {
+    return name.replaceAll(" ", "") + "Routine";
+}

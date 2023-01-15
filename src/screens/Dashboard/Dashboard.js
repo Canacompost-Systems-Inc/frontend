@@ -6,7 +6,7 @@ import { useActuatorsContext } from '../../contexts/actuatorsContext';
 import { useThemeContext } from '../../contexts/themeContext';
 import { useDashboardDisplayContext } from '../../contexts/dashboardDisplayContext';
 import { useTaskQueueContext } from '../../contexts/taskQueueContext';
-import { handleTitles, constrainNumber, addBrackets } from "../../helpers/helpers";
+import { handleTitles, constrainNumber, addBrackets, friendlyNameifyRoutine } from "../../helpers/helpers";
 import './Dashboard.css';
 
 function Dashboard() {
@@ -58,7 +58,7 @@ function Dashboard() {
                     <Card>
                         <div className="dashboard-main-routine-row">
                             <b>Active Task</b>
-                            <span>{(activeRoutine !== null) ? activeRoutine.name : "No Active Tasks"}</span>
+                            <span>{(activeRoutine !== null) ? friendlyNameifyRoutine(activeRoutine.name) : "No Active Tasks"}</span>
                         </div>
                     </Card>
                 </div>
