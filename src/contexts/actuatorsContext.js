@@ -76,7 +76,7 @@ function ActuatorsProvider(props) {
         getActuators();
         setInterval(() => {
             getActuators();
-        }, 5000);
+        }, 1000);
     }, []);
 
     return <ActuatorsContext.Provider value={{actuators, sensors, updateActuators, updateSensors}} {...props} />;
