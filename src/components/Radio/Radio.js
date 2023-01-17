@@ -32,7 +32,7 @@ function Radio (props) {
                                 onChange(option.value),
                                 setRadioValue(option.value)
                             ]}
-                            className="radio"
+                            className={`radio ${option.value === radioValue ? "radio-checked" : ""}`}
                             type="radio"
                             name={option.name}
                             id={`${id}-${option.name}`}

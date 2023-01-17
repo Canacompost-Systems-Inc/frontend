@@ -35,6 +35,9 @@
     width: 20px;
 }
 
+.radio-checked:after {
+    background: #57E377 !important;
+}
 .radio-label {
     margin-left: var(--space);
 }
