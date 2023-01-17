@@ -57,10 +57,10 @@
 }
 
 .meter-pointer {
-    height:0.8rem;
+    height:0.6rem;
     position: absolute;
-    top: 18%;
-    transform-origin: 0rem 1.5rem;
+    top: 12%;
+    transform-origin: 0rem 1.6rem;
     transition: var(--transition);
     -webkit-transition: -webkit-transform .8s ease-in-out;
     -ms-transition: -ms-transform .8s ease-in-out;
@@ -70,8 +70,9 @@
 }
 
 .meter-pointer-large {
-    height: 1.6rem;
-    transform-origin: 0.2rem 3.2rem;
+    height: 1.5rem;
+    transform-origin: 0.3rem 3.6rem;
+    top: 15%;
     width: 0.4rem;
 }
 
